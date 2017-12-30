@@ -43,7 +43,7 @@ app.get('/', function (req, res, next) {
     }
     else {
         console.log('got into else');
-        res.status(400).send({ 'error': 'Please specify Username' });
+        res.status(400).send({ 'error': 'Please specify Username in query format as stated on https://github.com/aarshad786/MediumPostsAPI' });
     }
 
 });
