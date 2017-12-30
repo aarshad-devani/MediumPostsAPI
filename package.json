@@ -1,0 +1,24 @@
+{
+  "name": "mediumpublic",
+  "version": "1.0.0",
+  "description": "Public rest api to get medium posts of user using username/handle",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "medium",
+    "medium-rest",
+    "rest",
+    "medium-posts",
+    "rss2json"
+  ],
+  "author": "Aarshad Devani",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "express": "^4.16.2",
+    "xml2js": "^0.4.19"
+  }
+}
