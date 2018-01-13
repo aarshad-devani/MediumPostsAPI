@@ -6,21 +6,19 @@ var parseString = require('xml2js').parseString;
 var port = process.env.PORT || 8000;
 
 app.get('/', function (req, res, next) {
-    console.log(req.query.Username);
     if (req.query.Username && req.query.Format === 'json') {
         axios.get('https://medium.com/feed/@' + req.query.Username).then((Response) => {
             parseString(Response.data, function (err, result) {
-                console.log(result);
                 let channelData = result.rss.channel[0];
                 let items = [];
                 channelData.item.forEach(element => {
                     items.push({
-                        title: element.title,
-                        link: element.link,
+                        title: element.title[0],
+                        link: element.link[0],
                         categories: element.category,
-                        creator: element["dc:creator"],
-                        publishDate: element.pubDate,
-                        content: element["content:encoded"],
+                        creator: element["dc:creator"][0],
+                        publishDate: element.pubDate[0],
+                        content: element["content:encoded"][0],
                     });
                 });
                 let returnData = {
